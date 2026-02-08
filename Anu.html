@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine? 💖</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', cursive;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  overflow-x: hidden;
+  text-align: center;
+  color: #fff;
+}
+
+/* Hearts animation */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: red;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Balloons */
+.balloon {
+  position: fixed;
+  bottom: -100px;
+  font-size: 40px;
+  animation: balloonUp 8s linear infinite;
+}
+
+@keyframes balloonUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+  background: #ff4b5c;
+  color: white;
+}
+
+button:hover {
+  background: #ff1e38;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  max-width: 250px;
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.letter {
+  background: rgba(255,255,255,0.2);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: auto;
+  color: #fff;
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION 1 -->
+<section id="proposal">
+  <h1>💖 Hey My Love 💖</h1>
+  <h2>You make my world brighter every day ✨</h2>
+
+  <!-- Cute GIF -->
+  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Cute Love GIF">
+
+  <h1>Will You Be My Valentine? 💘</h1>
+
+  <button onclick="showLetter()">Yes 💕</button>
+  <button onclick="showLetter()">Of Course 😍</button>
+</section>
+
+<!-- SECTION 2 -->
+<section id="loveLetter" class="hidden">
+  <h1>💌 My Love Letter To You 💌</h1>
+
+  <img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif">
+
+  <div class="letter">
+    <p>
+      My love,  
+      Even though miles separate us, my heart beats only for you.
+      Every message from you feels like a warm hug,
+      every call feels like home, and every thought of you
+      makes my day brighter.
+    </p>
+    <p>
+      Distance may test us, but it can never weaken what we have.
+      You are my safe place, my happiness, my forever.
+      I dream of the day when I don’t have to miss you anymore,
+      when I can hold your hand and tell you I love you—
+      not through a screen, but in your arms.
+    </p>
+    <p>
+      Until then, remember this:
+      No matter how far we are, my heart is always with you 💖
+    </p>
+  </div>
+
+  <button onclick="showPhotos()">Next 💞</button>
+</section>
+
+<!-- SECTION 3 -->
+<section id="photos" class="hidden">
+  <h1>📸 Our Beautiful Memories 📸</h1>
+
+  <!-- Replace these with your photos -->
+  <img src="https://via.placeholder.com/250x300?text=Us+❤️">
+  <img src="https://via.placeholder.com/250x300?text=Together+💑">
+  <img src="https://via.placeholder.com/250x300?text=Forever+💖">
+
+  <h2>I can’t wait to create many more memories with you 💕</h2>
+</section>
+
+<script>
+// Hearts generator
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 30 + 15 + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+
+// Balloons generator
+setInterval(() => {
+  const balloon = document.createElement("div");
+  balloon.className = "balloon";
+  balloon.innerHTML = "🎈";
+  balloon.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(balloon);
+  setTimeout(() => balloon.remove(), 8000);
+}, 2000);
+
+function showLetter() {
+  document.getElementById("proposal").classList.add("hidden");
+  document.getElementById("loveLetter").classList.remove("hidden");
+}
+
+function showPhotos() {
+  document.getElementById("loveLetter").classList.add("hidden");
+  document.getElementById("photos").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
